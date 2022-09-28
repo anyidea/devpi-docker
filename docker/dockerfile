@@ -1,6 +1,6 @@
 FROM python:3.9-alpine
 RUN apk add --update gcc python3-dev libffi-dev musl-dev && \
-    pip3 wheel --wheel-dir=/srv/wheels pip 'devpi-server==6.4.0' 'devpi-client==5.2.3' 'devpi-web==4.0.8' 'devpi-semantic-ui==0.2.2'
+    pip3 wheel --wheel-dir=/srv/wheels pip 'devpi-server==6.6.1' 'devpi-client==6.0.1' 'devpi-web==4.1.0' 'devpi-semantic-ui==0.2.2'
 
 FROM python:3.9-alpine
 COPY --from=0 /srv/wheels /srv/wheels
