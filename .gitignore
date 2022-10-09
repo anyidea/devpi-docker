@@ -175,7 +175,6 @@ typings/
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/dictionaries
-.idea/**/scf.iml
 .idea/**/misc.xml
 .idea/git_toolbox_prj.xml
 
@@ -327,17 +326,6 @@ Session.vim
 tags
 
 ### Project template
-scf/media/
-
-.pytest_cache/
-.ipython/
-.env
-.envs/*
-!.envs/.local/
 /.idea/dbnavigator.xml
 /.idea/thriftCompiler.xml
 
-
-### local template
-/log/
-/config/settings/local-dev.py
