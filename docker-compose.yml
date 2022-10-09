@@ -1,0 +1,41 @@
+version: '3'
+
+volumes:
+  devpi-data:
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: devpi/Dockerfile
+    image: registry.cn-shanghai.aliyuncs.com/ops-wcc/devpi-server
+    container_name: devpi-server
+    restart: unless-stopped
+    volumes:
+      - devpi-data:/data/devpiserver
+    environment:
+      DEVPISERVER_ROOT_PASSWORD: "wcc-012"
+      DEVPISERVER_USER: "wcc"
+      DEVPISERVER_PASSWORD: "wcc-012"
+      DEVPISERVER_MIRROR_INDEX: pypi
+      DEVPISERVER_SOURCE_MIRROR_URL: "https://mirrors.aliyun.com/pypi/simple/"
+      DEVPISERVER_SERVERDIR: /data/devpiserver
+      DEVPISERVER_HOST: 0.0.0.0
+      DEVPISERVER_PORT: 4040
+      DEVPISERVER_THEME: "/usr/local/lib/python3.9/site-packages/devpi_semantic_ui"
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    container_name: devpi-nginx
+    restart: unless-stopped
+    volumes:
+      - devpi-data:/data/devpiserver
+    links:
+      - web:devpi
+    ports:
+      - "8080:80"
+    environment:
+      DEVPISERVER_HOST: devpi
+      DEVPISERVER_PORT: 4040
+
