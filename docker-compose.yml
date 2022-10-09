@@ -14,9 +14,9 @@ services:
     volumes:
       - devpi-data:/data/devpiserver
     environment:
-      DEVPISERVER_ROOT_PASSWORD: "wcc-012"
+      DEVPISERVER_ROOT_PASSWORD: "***"
       DEVPISERVER_USER: "wcc"
-      DEVPISERVER_PASSWORD: "wcc-012"
+      DEVPISERVER_PASSWORD: "***"
       DEVPISERVER_MIRROR_INDEX: pypi
       DEVPISERVER_SOURCE_MIRROR_URL: "https://mirrors.aliyun.com/pypi/simple/"
       DEVPISERVER_SERVERDIR: /data/devpiserver
