@@ -18,7 +18,7 @@ services:
       DEVPISERVER_USER: "wcc"
       DEVPISERVER_PASSWORD: "***"
       DEVPISERVER_MIRROR_INDEX: pypi
-      DEVPISERVER_SOURCE_MIRROR_URL: "https://mirrors.aliyun.com/pypi/simple/"
+      DEVPISERVER_SOURCE_MIRROR_URL: "https://mirrors.cloud.aliyuncs.com/pypi/simple/"
       DEVPISERVER_SERVERDIR: /data/devpiserver
       DEVPISERVER_HOST: 0.0.0.0
       DEVPISERVER_PORT: 4040
@@ -34,7 +34,8 @@ services:
     links:
       - web:devpi
     ports:
-      - "8080:80"
+      - "80:80"
+      - "443:443"
     environment:
       DEVPISERVER_HOST: devpi
       DEVPISERVER_PORT: 4040
